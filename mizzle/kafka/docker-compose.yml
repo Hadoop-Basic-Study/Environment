@@ -82,3 +82,14 @@ services:
       - kafka1
       - kafka2
       - kafka3
+  zookeeper-navigator:
+    hostname: zookeeper-navigator
+    container_name: zookeeper-navigator
+    image: elkozmon/zoonavigator:1.1.2
+    restart: always
+    ports:
+      - 9100:9100
+    environment:
+      HTTP_PORT: 9100
+    depends_on:
+      - zookeeper
